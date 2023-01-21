@@ -15,22 +15,7 @@ struct ContentView: View {
     
     
     var body: some View {
-        VStack (spacing : 40 ) {
-            Webview(url: URL(string: urlString)!)
-            
-            Link ( destination: URL(string: urlString)!, label: {
-                Text("open in new window")
-            })
-
-            Button ("Open in a sheet"){
-                showWebView.toggle()
-                
-            }.sheet(isPresented: $showWebView) {
-                Webview(url: URL(string: urlString)!)
-            }
-
-        }
-        .padding()
+        Webview(url: URL(string: urlString)!).ignoresSafeArea()
     }
 }
 
